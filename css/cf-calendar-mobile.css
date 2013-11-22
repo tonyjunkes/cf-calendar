@@ -1,11 +1,11 @@
-#calendar { font-family: verdana; background-color: #ffffcc; font-size: 12px; border: 1px solid #333; margin: 0 auto; }
-#calendar p, #calendar div { font-size: 12px; }
+/*Calendar*/
+#calendar { font-family: verdana; background-color: #ffffcc; font-size: 12px; border: 1px solid #333; margin: 30px auto; }
 .cal-nav, .cal-hdr { height: 35px; text-align: center; background-color: #ffffcc; }
 .cal-nav a { color: #333; }
 .cal-hdr { font-weight: bold; font-size: 16px; }
-.cal-square { border: 1px solid #787878; text-align: center; width: 90px; height: 90px; background-color: #fff; }
+.cal-square { border: 1px solid #787878; text-align: center; width: 45px; height: 30px; background-color: #fff; }
 .cal-day { height: 25px; background-color: #FFFF91; font-weight: bold; font-size: 11px; }
-.cal-day-square { padding: 2px; font-size: 10px; width: 16px; height: 12px; background-color: #fff; border: 1px solid #787878; text-align: center; }
+.cal-day-square { padding: 2px; font-size: 10px; width: 16px; height: 15px; background-color: #fff; border: 1px solid #787878; text-align: center; }
 .cal-day-null { background-color: #ccc; }
 .cal-day-active:hover { background-color: #96C9FF; }
 .cal-today { background-color: #A9FF87; }
@@ -13,8 +13,7 @@
 .cal-event a { border: none; font-size: 10px; text-decoration: none; color: #333; }
 .cal-event a:hover { text-decoration: underline; }
 .event-date { font-size: 11px; color: #787878; }
-.top { vertical-align: top; }
 
 /*For jQuery UI Modal View*/
-#dialog, .window { display: none; }
+#dialog { display: none; }
 #event {}

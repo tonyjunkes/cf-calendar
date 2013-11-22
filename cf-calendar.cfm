@@ -72,24 +72,35 @@
             </cfif>
             <cfif showDays>
                <cfset squareDate = "#DateFormat(thisMonth, "M")# - #thisDay# - #DateFormat(thisMonth, "YYYY")#" />
-               <td class="cal-square cal-day-active top <cfif squareDate EQ DateFormat(Now())>cal-today</cfif>">
+               <td class="cal-square cal-day-active top <cfif squareDate EQ DateFormat(Now(), "M-D-YYYY")>cal-today</cfif>">
                   <table>
                      <tr>
                         <cfif squareDate EQ edate>
                         <td>
                            <div class="cal-day-square">#thisDay#</div>
                            <!---This would normally be a dynamically populated line holding variable values from a db or similar.--->
-                           <div id="view" class="cal-event"><a id="event" href="#cp#?date=#edate#&eid=#eid#">Event #eid#</a></div>
-                        </td>
-                        <!---This is the modal window jQuery UI will trigger to display "event" info.--->
-                        <cfoutput>
-                           <div id="dialog" class="window">
+                           <div id="view-#thisDay#" class="cal-event"><a id="event" href="#cp#?date=#edate#&eid=#eid#">Event #eid#</a></div>
+                           <!---
+                              This is the modal window jQuery UI will trigger to display "event" info.
+                              Dynamic selectors are created for multiple modals.
+                           --->
+                           <div id="dialog-#thisDay#" class="window">
                               <h2>#eventhdr#</h2>
                               <div class="event-date">#DateFormat(edate,"DDDD - MMMM DD, YYYY")#</div>
                               <div><p>#eventdetails#</p></div>
                            </div>
-                        </cfoutput>
+                           <script type="text/javascript">
+                           $(function() {
+                              $("##view-#thisDay#").click(function(a) {
+                                 a.preventDefault();
+                                 $("##dialog-#thisDay#").dialog({
+                                    show: 'fade', draggable: true, modal: true, height: 400, width: 500, resizable: false
+                                 });
+                              });
+                           });
+                           </script>
                         <!---//--->
+                        </td>
                         <cfelse> 
                         <td>
                            <div class="cal-day-square">#thisDay#</div>
