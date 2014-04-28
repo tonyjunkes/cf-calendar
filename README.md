@@ -1,4 +1,4 @@
 cf-calendar
 ===========
 
-Simple, quick and dirty calendar layout in ColdFusion with some styling effects for dynamic data from jQuery / jQuery UI
+Simple, quick and easy ColdFusion calendar layout with some styling effects for dynamic data using jQuery / jQuery UI
